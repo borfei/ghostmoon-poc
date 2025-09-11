@@ -1,0 +1,88 @@
+@import url("https://fonts.googleapis.com/css2?family=Azeret+Mono:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+  font-family: "Azeret Mono", monospace;
+  background-image: url("bg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: black;
+  color: white;
+  text-transform: lowercase;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 100px;
+}
+
+.navlist {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navlist li + li::before {
+    content: '\25A0';
+    margin: 0 20px;
+}
+
+.navlist li a {
+  text-decoration: none;
+  color: white;
+}
+
+.navlist li a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 0 100px;
+}
+
+.footer::before {
+  content: "";
+  width: 100%;
+  display: block;
+  border-top: 1px solid gray;
+}
+
+.footer {
+  padding: 30px 100px;
+}
+
+.alert {
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+#css-feature-not-supported {
+  display: flex; /* meant to show by default if the code below does not get called */
+}
+
+@supports (color-scheme: dark) {
+  #css-feature-not-supported {
+    display: none; /* all good, no need to show the css feature unsupported alert */
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #screen-width-too-small {
+    display: flex; /* show the proper alert when screen width is too small */
+  }
+}
